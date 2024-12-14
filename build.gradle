@@ -1,19 +1,24 @@
 plugins {
-    id 'java'
+    id 'java-library'//язык
 }
 
-group = 'org.example'
-version = '1.0-SNAPSHOT'
-
 repositories {
-    mavenCentral()
+    mavenCentral()//готовый инструменталий
+}
+compileTestJava{
+    options.encoding='UTF-8'
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation (
+            "com.codeborne:selenide:7.4.0",//
+            "org.junit.jupiter:junit-jupiter:5.11.0",
+            "com.github.javafaker:javafaker:1.0.2"
+    )//test
 }
 
+
 test {
+    //systemProperty "chromeoptions.prefs","intl.accept_languages=en"
     useJUnitPlatform()
 }
