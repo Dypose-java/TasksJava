@@ -1,7 +1,7 @@
 package vk_skuf.vanya.lab1;
 
 public class Mammal {
-    private String name,family;
+    private String name, family;
     private float maxSpeed;
 
     public Mammal(String name, String family, float maxSpeed) {
