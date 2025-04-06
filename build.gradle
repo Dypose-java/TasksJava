@@ -1,25 +1,26 @@
 plugins {
     id 'java-library'//язык
+    id "io.freefair.lombok" version "8.12"
 }
 
 repositories {
-    mavenCentral()//готовый инструменталий
+    mavenCentral()
 }
 compileTestJava{
     options.encoding='UTF-8'
 }
 
 dependencies {
+    implementation("org.junit.jupiter:junit-jupiter:5.11.0")
     testImplementation (
-            "com.codeborne:selenide:7.4.0",//
+            "com.codeborne:selenide:7.4.0",
             "org.junit.jupiter:junit-jupiter:5.11.0",
             "com.github.javafaker:javafaker:1.0.2"
-    )//test
+    )
 }
 
 
 
 test {
-    //systemProperty "chromeoptions.prefs","intl.accept_languages=en"
     useJUnitPlatform()
 }

@@ -1,4 +1,4 @@
-package code_me.Level_7_5;
+package code_me.level_7_5;
 
 public class Task2 {
     /**Дана переменная со строкой. Проверьте, что в эта строка представляет собой дробь.*/

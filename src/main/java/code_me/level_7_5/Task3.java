@@ -1,7 +1,6 @@
-package code_me.Level_7_5;
+package code_me.level_7_5;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class Task3 {
     /**Сделайте метод, который параметром будет принимать массив с числами и возвращать второе по величине число.*/

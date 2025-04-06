@@ -1,6 +1,5 @@
-package code_me.Level_7_5;
+package code_me.level_7_5;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;

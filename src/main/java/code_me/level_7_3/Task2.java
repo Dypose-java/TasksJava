@@ -1,4 +1,4 @@
-package code_me.Level_7_3;
+package code_me.level_7_3;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
