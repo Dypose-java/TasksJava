@@ -1,57 +1,52 @@
 package leetcode.programmingSkills;
 
 import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
 
 public class TicTacToeGame {
-    static int board[][]=new int[3][3];
-   static final int idUser1=0;
-    static final int idUser2=1;
     public static void main(String[] args) {
-        //printBoard();
-        Scanner scanner = new Scanner(System.in);
-        boolean isGame=true;
-        /*while (true){
-            System.out.println("Пользователь:" + idUser1 + ",введите строку 0-2,столбец 0-2");
-            int rowUser1=scanner.nextInt();
-            int colUser1=scanner.nextInt();
-            addNum(idUser1,rowUser1,colUser1);
-            printBoard();
-            System.out.println("Пользователь:" + idUser2 + ",введите строку 0-2,столбец 0-2");
-            int rowUser2=scanner.nextInt();
-            int colUser2=scanner.nextInt();
-            addNum(idUser2,rowUser1,colUser1);
-            printBoard();
-        }*/
-        addNum(idUser1,0,0);
-        addNum(idUser1,0,1);
-        addNum(idUser1,0,2);
-        printBoard();
-
-
-
-
+        int[][] moves = {{0, 0}, {1, 1}, {0, 1}, {1, 0}, {0, 2}};
+        String tictactoe = new TicTacToeGame().tictactoe(moves);
 
     }
-    public static void printBoard(){
-        System.out.println("  0 1 2");
+    public String tictactoe(int[][] moves) {
+
+        char[][] board = new char[3][3];
+        char[] users = {'X', 'O'};
+        for (int i = 0; i < moves.length; i++) {
+            int row = moves[i][0];
+            int col = moves[i][1];
+            board[row][col] = users[i % 2]; // A: X, B: O
+        }
+        char winner = checkWinner(board);
+        if (winner == 'X') return "A";
+        if (winner == 'O') return "B";
+        return moves.length == 9 ? "Draw" : "Pending";
+    }
+
+    private char checkWinner(char[][] board) {
         for (int i = 0; i < 3; i++) {
-            System.out.print(i + " ");
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j]);
-                if (j < 2) System.out.print("|");
+            // строки
+            if (board[i][0] != 0 && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                return board[i][0];
             }
-            System.out.println();
-            if (i < 2) System.out.println("  -----");
+            // столбцы
+            if (board[0][i] != 0 && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+                return board[0][i];
+            }
         }
 
+        // диагонали
+        if (board[0][0] != 0 && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            return board[0][0];
+        }
+        if (board[0][2] != 0 && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            return board[0][2];
+        }
+
+        return ' '; // никто не победил
     }
-    static void addNum(int idUser,int rows,int colors){
-        int val=0;
-        if (idUser==0)
-            val=1;
-        else val=2;
-        board[rows][colors]=val;
+
+
     }
-}
+
+
