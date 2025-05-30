@@ -1,0 +1,3 @@
+./gradlew clean test -Dtag=<tag> -DrunIn=<runIn>
+tag:UI,API
+runIn:allProject
